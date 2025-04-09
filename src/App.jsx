@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import QuizLayout from "./components/QuizLayout";
 import SubmitPage from "./components/SubmitPage";
 import QuizStart from "./components/QuizStart";
+
 import "./App.css";
 
 function App() {
@@ -9,6 +10,10 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<QuizStart />} />
+        <Route
+          path="/contact-information"
+          element={<QuizLayout section={"Contact Information"} />}
+        />
         <Route
           path="/business-snapshot"
           element={<QuizLayout section={"Business Snapshot"} />}

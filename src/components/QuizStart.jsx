@@ -4,7 +4,7 @@ export default function SubmitPage() {
   const navigate = useNavigate();
 
   const handleSubmit = () => {
-    navigate("/business-snapshot");
+    navigate("/contact-information");
   };
 
   return (

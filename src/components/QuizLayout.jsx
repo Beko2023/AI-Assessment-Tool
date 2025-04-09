@@ -4,6 +4,7 @@ import snapShotQuestions from "../data/snapshot";
 import followupQuestions from "../data/follow_up";
 import keyChallenges from "../data/key_challenges";
 import dataReadiness from "../data/data_readiness";
+import ContactForm from "./ContactForm";
 
 const questionSets = {
   "Business Snapshot": snapShotQuestions,
@@ -13,6 +14,7 @@ const questionSets = {
 };
 
 const sectionOrder = [
+  "Contact Information",
   "Business Snapshot",
   "Technology Snapshot",
   "Key Challenges",
@@ -55,7 +57,11 @@ export default function QuizLayout({ section }) {
     const currentIndex = sectionOrder.indexOf(section);
     if (currentIndex < sectionOrder.length - 1) {
       const nextSection = sectionOrder[currentIndex + 1];
-      navigate(`/${nextSection.toLowerCase().replace(/\s+/g, "-")}`);
+      const path =
+        nextSection === "Contact Information"
+          ? "/contact-information"
+          : `/${nextSection.toLowerCase().replace(/\s+/g, "-")}`;
+      navigate(path);
     } else {
       navigate("/submit");
     }
@@ -75,6 +81,30 @@ export default function QuizLayout({ section }) {
 
   const isLastSection =
     sectionOrder.indexOf(section) === sectionOrder.length - 1;
+
+  if (section === "Contact Information") {
+    return (
+      <div className="quiz-app">
+        <div className="progress-container">
+          <div
+            className="progress-bar"
+            style={{
+              width: `${
+                ((sectionOrder.indexOf(section) + 1) / sectionOrder.length) *
+                100
+              }%`,
+            }}
+          />
+        </div>
+        <h1 className="header">AI ASSESSMENT</h1>
+        <ContactForm
+          answers={answers}
+          handleAnswer={handleAnswer}
+          goToNextSection={goToNextSection}
+        />
+      </div>
+    );
+  }
 
   const renderOptions = (question) => {
     switch (question.type) {
@@ -193,7 +223,7 @@ export default function QuizLayout({ section }) {
         />
       </div>
       <h1 className="header">AI ASSESSMENT</h1>
-      <h2 className="section-header">{section} </h2>
+      <h2 className="section-header">{section}</h2>
       <div className="questions-container">
         {questions.map((question) => (
           <div key={question.id} className="question-container">
