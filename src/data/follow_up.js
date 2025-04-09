@@ -3,7 +3,7 @@ const followUpQuestions = [
     id: "erpSystems",
     question: "Which ERP system(s) does your company use?",
     type: "checkbox",
-    description: "Please choose the most relevant answer",
+    description: "Please pick the most relevant options",
     options: [
       "SAP",
       "Oracle ERP Cloud",
@@ -21,7 +21,7 @@ const followUpQuestions = [
     id: "crmSystems",
     question: "Which CRM system(s) does your company use?",
     type: "checkbox",
-    description: "Please choose the most relevant answer",
+    description: "Please pick the most relevant options",
     options: [
       "Salesforce",
       "HubSpot",
@@ -39,7 +39,7 @@ const followUpQuestions = [
     id: "biTools",
     question: "Which data analytics tool(s) does your company use?",
     type: "checkbox",
-    description: "Please choose the most relevant answer",
+    description: "Please pick the most relevant options",
     options: [
       "Microsoft Power BI",
       "Tableau",
@@ -64,7 +64,7 @@ const followUpQuestions = [
     id: "cloudServices",
     question: "Which cloud services do you use? (Select all that apply)",
     type: "checkbox",
-    description: "Please choose the most relevant answer",
+    description: "Please pick the most relevant options",
     options: [
       "AWS (Amazon Web Services)",
       "Microsoft Azure",
@@ -81,7 +81,7 @@ const followUpQuestions = [
     id: "dataWarehouseSolutions",
     question: "Which data warehousing solution(s) does your company use?",
     type: "checkbox",
-    description: "Please choose the most relevant answer",
+    description: "Please pick the most relevant options",
     options: [
       "Amazon Redshift",
       "Google BigQuery",
@@ -100,7 +100,7 @@ const followUpQuestions = [
     question:
       "What data management tools and platforms are you currently using?",
     type: "checkbox",
-    description: "Please choose the most relevant answer",
+    description: "Please pick the most relevant options",
     options: [
       "Data warehouse (e.g., Amazon Redshift, Google BigQuery, Snowflake)",
       "Data lake (e.g., Hadoop, Azure Data Lake)",

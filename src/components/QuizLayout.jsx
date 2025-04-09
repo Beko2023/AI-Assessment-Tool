@@ -28,12 +28,18 @@ export default function QuizLayout({ section }) {
     if (isCheckbox) {
       setAnswers((prev) => {
         const currentAnswers = prev[questionId] || [];
+        const questionConfig = keyChallenges.find((q) => q.id === questionId);
+        const maxSelections = questionConfig?.maxSelections;
+
         if (currentAnswers.includes(answer)) {
           return {
             ...prev,
             [questionId]: currentAnswers.filter((item) => item !== answer),
           };
         } else {
+          if (maxSelections && currentAnswers.length >= maxSelections) {
+            return prev;
+          }
           return {
             ...prev,
             [questionId]: [...currentAnswers, answer],

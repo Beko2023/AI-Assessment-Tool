@@ -16,7 +16,7 @@ const dataReadiness = [
     id: "dataChallenges",
     question: "What challenges do you face with your current data management?",
     type: "checkbox",
-    description: "Please pick the most relevant 3 options",
+    description: "Please pick the most relevant options",
     options: [
       "Data silos",
       "Inconsistent data",

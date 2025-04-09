@@ -4,7 +4,7 @@ const keyChallenges = [
     question:
       "What are the top 3 business challenges your company is facing today?",
     type: "checkbox",
-    description: "Please pick the most relevant 3 options",
+    description: "Please pick the most relevant options",
     options: [
       "Inefficient Processes",
       "Market Competition",
@@ -26,7 +26,7 @@ const keyChallenges = [
     question:
       "What strategic challenges are you looking to address in the next 12 months?",
     type: "checkbox",
-    description: "Please pick the most relevant 3 options",
+    description: "Please pick the most relevant options",
     options: [
       "Market Expansion",
       "Product Innovation",
@@ -66,7 +66,7 @@ const keyChallenges = [
     question:
       "What is your company’s biggest obstacle to using data effectively?",
     type: "checkbox",
-    description: "Please pick the most relevant 3 options",
+    description: "Please pick the most relevant options",
     options: [
       "Lack of Data Quality",
       "Lack of Data Infrastructure",

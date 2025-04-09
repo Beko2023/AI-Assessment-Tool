@@ -70,7 +70,7 @@ const snapShotQuestions = [
     question:
       "What technologies or systems do you currently use in your business operations?",
     type: "checkbox",
-    description: "Please pick the most relevant 3 options",
+    description: "Please pick the most relevant options",
     options: [
       "ERP",
       "CRM",
