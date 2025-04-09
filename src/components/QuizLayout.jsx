@@ -5,8 +5,10 @@ import followupQuestions from "../data/follow_up";
 import keyChallenges from "../data/key_challenges";
 import dataReadiness from "../data/data_readiness";
 import ContactForm from "./ContactForm";
+import contactFormFields from "../data/contactForm";
 
 const questionSets = {
+  "Contact Information": contactFormFields,
   "Business Snapshot": snapShotQuestions,
   "Technology Snapshot": followupQuestions,
   "Key Challenges": keyChallenges,
@@ -23,8 +25,11 @@ const sectionOrder = [
 
 export default function QuizLayout({ section }) {
   const [answers, setAnswers] = useState({});
+  const [isAutoSkipping, setIsAutoSkipping] = useState(false);
   const navigate = useNavigate();
   const questions = questionSets[section];
+  const isLastSection =
+    sectionOrder.indexOf(section) === sectionOrder.length - 1;
 
   const handleAnswer = (questionId, answer, isCheckbox = false) => {
     if (isCheckbox) {
@@ -67,6 +72,25 @@ export default function QuizLayout({ section }) {
     }
   };
 
+  const filteredQuestions = questions.filter((question) => {
+    if (typeof question.showIf === "function") {
+      return question.showIf(answers);
+    }
+    return true;
+  });
+
+  useEffect(() => {
+    if (filteredQuestions.length === 0 && section !== "Contact Information") {
+      setIsAutoSkipping(true);
+      const timer = setTimeout(() => {
+        goToNextSection();
+        setIsAutoSkipping(false);
+      }, 3000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [filteredQuestions, section, goToNextSection]);
+
   useEffect(() => {
     const scrollToTop = () => {
       requestAnimationFrame(() => {
@@ -78,9 +102,6 @@ export default function QuizLayout({ section }) {
 
     return () => clearTimeout(timeout);
   }, [section]);
-
-  const isLastSection =
-    sectionOrder.indexOf(section) === sectionOrder.length - 1;
 
   if (section === "Contact Information") {
     return (
@@ -224,19 +245,34 @@ export default function QuizLayout({ section }) {
       </div>
       <h1 className="header">AI ASSESSMENT</h1>
       <h2 className="section-header">{section}</h2>
-      <div className="questions-container">
-        {questions.map((question) => (
-          <div key={question.id} className="question-container">
-            <h3 className="questions">
-              {typeof question.question === "string"
-                ? question.question
-                : question.question.label || question.question.value}
-            </h3>
-            <p className="description">{`(${question.description})`}</p>
-            {renderOptions(question)}
-          </div>
-        ))}
-      </div>
+      {sectionOrder.indexOf(section) === 1 && (
+        <p className="description-details">
+          *Questions will be generated based on your answers on this section*
+        </p>
+      )}
+      {filteredQuestions.length > 0 ? (
+        <div className="questions-container">
+          {filteredQuestions.map((question) => (
+            <div key={question.id} className="question-container">
+              <h3 className="questions">
+                {typeof question.question === "string"
+                  ? question.question
+                  : question.question.label || question.question.value}
+              </h3>
+              {question.description && (
+                <p className="description">{`(${question.description})`}</p>
+              )}
+              {renderOptions(question)}
+            </div>
+          ))}
+        </div>
+      ) : section !== "Contact Information" ? (
+        <div className="no-questions-message">
+          <div className="loading-spinner"></div>
+          <p>No questions available based on your previous answers</p>
+          <p>Continuing to next section automatically...</p>
+        </div>
+      ) : null}
       <div className="navigation">
         <button onClick={goToNextSection}>
           {isLastSection ? "Submit Answers" : "Next Section"}

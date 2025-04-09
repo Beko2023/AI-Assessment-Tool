@@ -16,6 +16,7 @@ const followUpQuestions = [
       "Workday",
       "Other (please specify)",
     ],
+    showIf: (answers) => answers.systems?.includes("ERP"),
   },
   {
     id: "crmSystems",
@@ -34,6 +35,7 @@ const followUpQuestions = [
       "Oracle CRM",
       "Other (please specify)",
     ],
+    showIf: (answers) => answers.systems?.includes("CRN"),
   },
   {
     id: "biTools",
@@ -52,6 +54,7 @@ const followUpQuestions = [
       "Domo",
       "Other (please specify)",
     ],
+    showIf: (answers) => answers.systems?.includes("BI Tools"),
   },
   {
     id: "customSoftwareDevelopment",
@@ -59,6 +62,7 @@ const followUpQuestions = [
     type: "radio",
     description: "Please choose the most relevant answer",
     options: ["In-house", "Outsourced", "Both"],
+    showIf: (answers) => answers.systems?.includes("Custom Software"),
   },
   {
     id: "cloudServices",
@@ -76,6 +80,7 @@ const followUpQuestions = [
       "Rackspace",
       "Other (please specify)",
     ],
+    showIf: (answers) => answers.systems?.includes("Cloud Services"),
   },
   {
     id: "dataWarehouseSolutions",
@@ -94,6 +99,7 @@ const followUpQuestions = [
       "Cloudera",
       "Other (please specify)",
     ],
+    showIf: (answers) => answers.systems?.includes("Data Warehousing Tools"),
   },
   {
     id: "dataManagement",
@@ -108,6 +114,7 @@ const followUpQuestions = [
       "On-premise solutions (e.g., Oracle, SQL Server)",
       "Other (please specify)",
     ],
+    showIf: (answers) => answers.systems?.includes("Data Management Tools"),
   },
 ];
 

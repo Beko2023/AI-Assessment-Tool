@@ -78,6 +78,7 @@ const snapShotQuestions = [
       "BI Tools",
       "Custom Software",
       "Cloud Services",
+      "Data Management Tools",
     ],
   },
   {
