@@ -1,6 +1,6 @@
 import { useState } from "react";
 import contactFormFields from "../data/contactForm";
-import HCaptcha from "@hcaptcha/react-hcaptcha";
+// import HCaptcha from "@hcaptcha/react-hcaptcha";
 
 export default function ContactForm({
   answers,
@@ -8,7 +8,7 @@ export default function ContactForm({
   goToNextSection,
 }) {
   const [formErrors, setFormErrors] = useState({});
-  const [isCaptchaVerified, setIsCaptchaVerified] = useState(false);
+  // const [isCaptchaVerified, setIsCaptchaVerified] = useState(false);
 
   const validateField = (field, value) => {
     if (field.required && !value.trim()) {
@@ -39,10 +39,10 @@ export default function ContactForm({
     setFormErrors((prev) => ({ ...prev, [field.id]: error }));
   };
 
-  const handleVerificationSuccess = (token) => {
-    handleAnswer("h-captcha-response", token);
-    setIsCaptchaVerified(true);
-  };
+  // const handleVerificationSuccess = (token) => {
+  //   handleAnswer("h-captcha-response", token);
+  //   setIsCaptchaVerified(true);
+  // };
 
   const allFieldsValid = contactFormFields.every((field) => {
     const value = answers[field.id] || "";
