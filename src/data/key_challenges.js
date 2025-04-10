@@ -17,7 +17,7 @@ const keyChallenges = [
       "Customer Service Inconsistencies",
       "Inefficiencies in Resource Allocation",
       "Supply Chain Volatility",
-      "Other (please specify)",
+      "Other",
     ],
     maxSelections: 3,
   },
@@ -33,7 +33,6 @@ const keyChallenges = [
       "Competitive Pressure",
       "Customer Retention",
       "Digital Transformation",
-      "Other (please specify)",
     ],
   },
   {
