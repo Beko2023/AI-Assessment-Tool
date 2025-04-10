@@ -33,7 +33,7 @@ const followUpQuestions = [
       "Zendesk Sell",
       "Oracle CRM",
     ],
-    showIf: (answers) => answers.systems?.includes("CRN"),
+    showIf: (answers) => answers.systems?.includes("CRM"),
   },
   {
     id: "biTools",

@@ -81,6 +81,12 @@ body {
   width: 100%;
 }
 
+.captcha-container {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+}
+
 /* QUIZ APP */
 
 .quiz-app {
