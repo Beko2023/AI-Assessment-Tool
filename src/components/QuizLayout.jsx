@@ -73,6 +73,18 @@ export default function QuizLayout({ section }) {
     }
   };
 
+  const goToPreviousSection = () => {
+    const currentIndex = sectionOrder.indexOf(section);
+    if (currentIndex > 0) {
+      const prevSection = sectionOrder[currentIndex - 1];
+      const path =
+        prevSection === "Contact Information"
+          ? "/contact-information"
+          : `/${prevSection.toLowerCase().replace(/\s+/g, "-")}`;
+      navigate(path);
+    }
+  };
+
   const filteredQuestions = questions.filter((question) => {
     if (typeof question.showIf === "function") {
       return question.showIf(answers);
@@ -275,6 +287,9 @@ export default function QuizLayout({ section }) {
         </div>
       ) : null}
       <div className="navigation">
+        {sectionOrder.indexOf(section) > 0 && (
+          <button onClick={goToPreviousSection}>Back</button>
+        )}
         <button onClick={goToNextSection}>
           {isLastSection ? "Submit Answers" : "Next Section"}
         </button>

@@ -201,7 +201,9 @@ body {
 
 .navigation {
   display: flex;
+  width: 100%;
   justify-content: space-between;
+  gap: 1rem;
   margin-top: 20px;
 }
 
@@ -213,6 +215,7 @@ button {
   border-radius: 4px;
   cursor: pointer;
   font-size: 1em;
+  margin: 0 1rem;
 }
 
 button.disabled {
