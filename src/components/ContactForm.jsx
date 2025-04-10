@@ -1,3 +1,5 @@
+import contactFormFields from "../data/contactForm";
+
 export default function ContactForm({
   answers,
   handleAnswer,
@@ -7,8 +9,8 @@ export default function ContactForm({
     handleAnswer(fieldId, e.target.value);
   };
 
-  const allFieldsFilled = fields.every(
-    (field) => !field.required || answers[field.id]
+  const allFieldsFilled = contactFormFields.every(
+    (field) => !field.required || answers[field.id]?.trim()
   );
 
   return (
@@ -19,7 +21,7 @@ export default function ContactForm({
       </p>
 
       <div className="form-fields">
-        {fields.map((field) => (
+        {contactFormFields.map((field) => (
           <div key={field.id} className="form-field">
             <label htmlFor={field.id}>{field.label}:</label>
             <input
