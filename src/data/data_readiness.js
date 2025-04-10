@@ -27,7 +27,6 @@ const dataReadiness = [
       "Limited access control or data security",
       "Lack of standardized formats",
       "High maintenance effort",
-      "Other (please specify)",
     ],
   },
   {

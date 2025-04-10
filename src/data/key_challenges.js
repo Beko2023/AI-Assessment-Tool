@@ -80,7 +80,6 @@ const keyChallenges = [
       "Unclear ROI or Value Proposition",
       "Security or Compliance Concerns",
       "Resistance to Change from Employees",
-      "Other (please specify)",
     ],
   },
   {
