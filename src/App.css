@@ -15,7 +15,7 @@ body {
 
 .quiz-start-page {
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -49,6 +49,14 @@ body {
 }
 
 /* CONTACT PAGE */
+
+.contact-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
 .form-fields {
   display: flex;

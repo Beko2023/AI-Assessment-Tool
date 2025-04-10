@@ -55,7 +55,7 @@ export default function ContactForm({
   const canSubmit = allFieldsValid;
 
   return (
-    <div className="quiz-app">
+    <div className="contact-form">
       <h2 className="section-header">Contact Information</h2>
       <p className="section-description">
         Please provide your contact details before starting the assessment

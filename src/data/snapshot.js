@@ -10,7 +10,7 @@ const snapShotQuestions = [
       "Investment",
       "Retail",
       "Healthcare",
-      "Finance",
+      "Finance & Banking",
       "Technology",
       "Other",
     ],
@@ -79,6 +79,7 @@ const snapShotQuestions = [
       "Custom Software",
       "Cloud Services",
       "Data Management Tools",
+      "None",
     ],
   },
   {
