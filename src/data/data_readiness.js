@@ -82,75 +82,75 @@ const dataReadiness = [
       "Unified data platform with advanced analytics capabilities available to all relevant stakeholders",
     ],
   },
-  {
-    id: "dataGovernanceFramework",
-    question:
-      "Does your company have a formal data governance framework in place to ensure data privacy, quality, and security, and what aspects does it cover?",
-    type: "radio",
-    description: "Please choose the most relevant answer",
-    options: [
-      {
-        label: "Yes, and it is fully enforced.",
-        value: "fully_enforced",
-        followUp: {
-          id: "frameworkAspects",
-          question:
-            "Which aspects are covered in your data governance framework?",
-          type: "checkbox",
+  // {
+  //   id: "dataGovernanceFramework",
+  //   question:
+  //     "Does your company have a formal data governance framework in place to ensure data privacy, quality, and security, and what aspects does it cover?",
+  //   type: "radio",
+  //   description: "Please choose the most relevant answer",
+  //   options: [
+  //     {
+  //       label: "Yes, and it is fully enforced.",
+  //       value: "fully_enforced",
+  //       followUp: {
+  //         id: "frameworkAspects",
+  //         question:
+  //           "Which aspects are covered in your data governance framework?",
+  //         type: "checkbox",
 
-          options: [
-            "Data quality management",
-            "Data privacy and security (e.g., GDPR, HIPAA compliance)",
-            "Data access controls",
-            "Data lifecycle management (collection, storage, retention, deletion)",
-            "Metadata management",
-            "Other (please specify)",
-          ],
-        },
-      },
-      {
-        label: "Yes, but it is not fully enforced.",
-        value: "partially_enforced",
-        followUp: {
-          id: "frameworkAspectsPartial",
-          question:
-            "Which aspects are covered in your data governance framework?",
-          type: "checkbox",
-          options: [
-            "Data quality management",
-            "Data privacy and security (e.g., GDPR, HIPAA compliance)",
-            "Data access controls",
-            "Data lifecycle management (collection, storage, retention, deletion)",
-            "Metadata management",
-            "Other (please specify)",
-          ],
-        },
-      },
-      {
-        label:
-          "We are in the process of developing a data governance framework.",
-        value: "in_development",
-        followUp: {
-          id: "developingAspects",
-          question:
-            "Which aspects are you currently developing in your data governance framework?",
-          type: "checkbox",
-          options: [
-            "Data quality management",
-            "Data privacy and security (e.g., GDPR, HIPAA compliance)",
-            "Data access controls",
-            "Data lifecycle management (collection, storage, retention, deletion)",
-            "Metadata management",
-            "Other (please specify)",
-          ],
-        },
-      },
-      {
-        label: "No, we do not have a formal data governance policy.",
-        value: "none",
-      },
-    ],
-  },
+  //         options: [
+  //           "Data quality management",
+  //           "Data privacy and security (e.g., GDPR, HIPAA compliance)",
+  //           "Data access controls",
+  //           "Data lifecycle management (collection, storage, retention, deletion)",
+  //           "Metadata management",
+  //           "Other (please specify)",
+  //         ],
+  //       },
+  //     },
+  //     {
+  //       label: "Yes, but it is not fully enforced.",
+  //       value: "partially_enforced",
+  //       followUp: {
+  //         id: "frameworkAspectsPartial",
+  //         question:
+  //           "Which aspects are covered in your data governance framework?",
+  //         type: "checkbox",
+  //         options: [
+  //           "Data quality management",
+  //           "Data privacy and security (e.g., GDPR, HIPAA compliance)",
+  //           "Data access controls",
+  //           "Data lifecycle management (collection, storage, retention, deletion)",
+  //           "Metadata management",
+  //           "Other (please specify)",
+  //         ],
+  //       },
+  //     },
+  //     {
+  //       label:
+  //         "We are in the process of developing a data governance framework.",
+  //       value: "in_development",
+  //       followUp: {
+  //         id: "developingAspects",
+  //         question:
+  //           "Which aspects are you currently developing in your data governance framework?",
+  //         type: "checkbox",
+  //         options: [
+  //           "Data quality management",
+  //           "Data privacy and security (e.g., GDPR, HIPAA compliance)",
+  //           "Data access controls",
+  //           "Data lifecycle management (collection, storage, retention, deletion)",
+  //           "Metadata management",
+  //           "Other (please specify)",
+  //         ],
+  //       },
+  //     },
+  //     {
+  //       label: "No, we do not have a formal data governance policy.",
+  //       value: "none",
+  //     },
+  //   ],
+  // },
 ];
 
 export default dataReadiness;

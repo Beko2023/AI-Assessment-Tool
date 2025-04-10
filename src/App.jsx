@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import QuizLayout from "./components/QuizLayout";
 import SubmitPage from "./components/SubmitPage";
 import QuizStart from "./components/QuizStart";
+import ResultsPage from "./components/ResultsPage";
 
 import "./App.css";
 
@@ -31,6 +32,7 @@ function App() {
           element={<QuizLayout section="Data Maturity" />}
         />
         <Route path="/submit" element={<SubmitPage />} />
+        <Route path="/results-page" element={<ResultsPage />} />
       </Routes>
     </Router>
   );

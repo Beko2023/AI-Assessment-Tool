@@ -6,6 +6,7 @@ import keyChallenges from "../data/key_challenges";
 import dataReadiness from "../data/data_readiness";
 import ContactForm from "./ContactForm";
 import contactFormFields from "../data/contactForm";
+import { useQuiz } from "../context/QuizContext";
 
 const questionSets = {
   "Contact Information": contactFormFields,
@@ -24,7 +25,7 @@ const sectionOrder = [
 ];
 
 export default function QuizLayout({ section }) {
-  const [answers, setAnswers] = useState({});
+  const { answers, setAnswers, questionSets } = useQuiz();
   const [isAutoSkipping, setIsAutoSkipping] = useState(false);
   const navigate = useNavigate();
   const questions = questionSets[section];

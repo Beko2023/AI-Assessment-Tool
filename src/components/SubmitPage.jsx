@@ -8,7 +8,7 @@ export default function SubmitPage() {
     // send back end information
     console.log("Submitting quiz...");
     alert("Quiz submitted successfully!");
-    navigate("/");
+    navigate("/results-page");
   };
 
   return (
