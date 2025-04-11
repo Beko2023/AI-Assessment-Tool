@@ -1,25 +1,25 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import snapShotQuestions from "../data/snapshot";
-import followupQuestions from "../data/follow_up";
+import businessProfile from "../data/business_profile";
+// import followupQuestions from "../data/follow_up";
 import keyChallenges from "../data/key_challenges";
-import dataReadiness from "../data/data_readiness";
+import dataMaturity from "../data/data_maturity";
 import ContactForm from "./ContactForm";
 import contactFormFields from "../data/contactForm";
 import { useQuiz } from "../context/QuizContext";
 
 const questionSets = {
   "Contact Information": contactFormFields,
-  "Business Snapshot": snapShotQuestions,
-  "Technology Snapshot": followupQuestions,
+  "Business Profile": businessProfile,
+  // "Technology Snapshot": followupQuestions,
   "Key Challenges": keyChallenges,
-  "Data Maturity": dataReadiness,
+  "Data Maturity": dataMaturity,
 };
 
 const sectionOrder = [
   "Contact Information",
-  "Business Snapshot",
-  "Technology Snapshot",
+  "Business Profile",
+  // "Technology Snapshot",
   "Key Challenges",
   "Data Maturity",
 ];

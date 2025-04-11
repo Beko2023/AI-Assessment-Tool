@@ -24,6 +24,14 @@ const contactFormFields = [
     required: true,
   },
   {
+    id: "jobTitle",
+    minLength: 2,
+    errorMessage: "Please enter your position at the company",
+    label: "Job Title",
+    type: "text",
+    required: true,
+  },
+  {
     id: "email",
     label: "Business Email",
     type: "email",

@@ -16,13 +16,13 @@ function App() {
           element={<QuizLayout section={"Contact Information"} />}
         />
         <Route
-          path="/business-snapshot"
-          element={<QuizLayout section={"Business Snapshot"} />}
+          path="/business-profile"
+          element={<QuizLayout section={"Business Profile"} />}
         />
-        <Route
+        {/* <Route
           path="/technology-snapshot"
           element={<QuizLayout section={"Technology Snapshot"} />}
-        />
+        /> */}
         <Route
           path="/key-challenges"
           element={<QuizLayout section={"Key Challenges"} />}

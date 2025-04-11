@@ -1,4 +1,4 @@
-const snapShotQuestions = [
+const businessProfile = [
   {
     id: "industry",
     question: "Which industry does your company operate in?",
@@ -33,8 +33,7 @@ const snapShotQuestions = [
       "$10M-$50M",
       "$50M-$100M",
       "$100M+",
-      "NonProfit",
-      "Government",
+      "NonProfit/Government",
     ],
   },
   {
@@ -52,8 +51,7 @@ const snapShotQuestions = [
   },
   {
     id: "dataVolume",
-    question:
-      "How much data does your company generate and collect on a daily basis?",
+    question: "How much data does your company generate and collect daily",
     type: "select",
     description: "Please choose the most relevant answer",
     options: [
@@ -78,34 +76,48 @@ const snapShotQuestions = [
       "BI Tools",
       "Custom Software",
       "Cloud Services",
-      "Data Management Tools",
       "None",
     ],
   },
   {
-    id: "decisionMaking",
-    question: "How are most decisions made in your company?",
+    id: "analytics_experience",
+    question:
+      "Which of the following best describes your current experience with analytics or AI?",
     type: "radio",
     description: "Please choose the most relevant answer",
     options: [
-      "Based on intuition or experience",
-      "Data is considered, but not the main driver",
-      "Decisions are mostly data-driven",
-      "We use automated decision-making (e.g., AI or algorithms)",
+      "Yes, deployed in production",
+      "Yes, at pilot or PoC stage",
+      "We’ve experimented, but nothing is live",
+      "No, but we’re planning to",
+      "No, and no plans yet",
     ],
   },
   {
-    id: "automationLevel",
-    question: "To what extent is your data processing automated?",
+    id: "ai_urgency",
+    question: "How urgently is your organization looking to embrace AI?",
     type: "radio",
     description: "Please choose the most relevant answer",
     options: [
-      "Fully automated (end-to-end pipelines)",
-      "Partially automated (some manual intervention)",
-      "Mostly manual (few automated processes)",
-      "No automation, all manual",
+      "Immediate priority – AI is a top initiative; execution is already underway",
+      "High urgency, planning phase – Actively planning adoption within the next 6–12 months",
+      "Moderate urgency – AI is on the radar, but not prioritized yet",
+      "Low or no urgency – No clear roadmap or urgency around AI right now",
+    ],
+  },
+  {
+    id: "ai_receptiveness",
+    question:
+      "How receptive is your management to embracing the changes brought about by AI?",
+    type: "radio",
+    description: "Please choose the most relevant answer",
+    options: [
+      "Highly receptive – Leadership actively supports AI-driven change",
+      "Somewhat receptive – Leadership is open to AI but still cautious",
+      "Uncertain or divided – Leadership views on AI are mixed or unclear",
+      "Not receptive – Management is resistant or skeptical about AI",
     ],
   },
 ];
 
-export default snapShotQuestions;
+export default businessProfile;

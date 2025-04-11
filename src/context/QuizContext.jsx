@@ -1,8 +1,8 @@
 import { createContext, useContext, useState } from "react";
-import snapShotQuestions from "../data/snapshot";
+import businessProfile from "../data/business_profile";
 import followupQuestions from "../data/follow_up";
 import keyChallenges from "../data/key_challenges";
-import dataReadiness from "../data/data_readiness";
+import dataMaturity from "../data/data_maturity";
 import contactFormFields from "../data/contactForm";
 
 const QuizContext = createContext();
@@ -11,10 +11,10 @@ export function QuizProvider({ children }) {
   const [answers, setAnswers] = useState({});
   const [questionSets] = useState({
     "Contact Information": contactFormFields,
-    "Business Snapshot": snapShotQuestions,
-    "Technology Snapshot": followupQuestions,
+    "Business Profile": businessProfile,
+    // "Technology Snapshot": followupQuestions,
     "Key Challenges": keyChallenges,
-    "Data Maturity": dataReadiness,
+    "Data Maturity": dataMaturity,
   });
 
   return (

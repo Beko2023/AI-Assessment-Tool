@@ -5,8 +5,8 @@ export default function ResultsPage() {
   const { answers, questionSets } = useQuiz();
   const sectionOrder = [
     "Contact Information",
-    "Business Snapshot",
-    "Technology Snapshot",
+    "Business Profile",
+    // "Technology Snapshot",
     "Key Challenges",
     "Data Maturity",
   ];
