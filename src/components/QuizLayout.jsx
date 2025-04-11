@@ -32,26 +32,68 @@ export default function QuizLayout({ section }) {
   const isLastSection =
     sectionOrder.indexOf(section) === sectionOrder.length - 1;
 
+  useEffect(() => {
+    if (!questions) return;
+
+    const initial = {};
+    questions.forEach((q) => {
+      if (!(q.id in answers)) {
+        initial[q.id] = null;
+      }
+    });
+
+    if (Object.keys(initial).length > 0) {
+      setAnswers((prev) => ({ ...initial, ...prev }));
+    }
+  }, [questions, answers, setAnswers]);
+
   const handleAnswer = (questionId, answer, isCheckbox = false) => {
     if (isCheckbox) {
       setAnswers((prev) => {
         const currentAnswers = prev[questionId] || [];
         const questionConfig = keyChallenges.find((q) => q.id === questionId);
         const maxSelections = questionConfig?.maxSelections;
+        const isNone = answer === "None";
 
-        if (currentAnswers.includes(answer)) {
-          return {
-            ...prev,
-            [questionId]: currentAnswers.filter((item) => item !== answer),
-          };
-        } else {
-          if (maxSelections && currentAnswers.length >= maxSelections) {
-            return prev;
+        // If clicking "None"
+        if (isNone) {
+          if (currentAnswers.includes("None")) {
+            // If "None" was already selected, remove it
+            return {
+              ...prev,
+              [questionId]: currentAnswers.filter((item) => item !== "None"),
+            };
+          } else {
+            // If "None" is being selected, clear all other options
+            return {
+              ...prev,
+              [questionId]: ["None"],
+            };
           }
-          return {
-            ...prev,
-            [questionId]: [...currentAnswers, answer],
-          };
+        }
+        // If clicking any other option
+        else {
+          if (currentAnswers.includes(answer)) {
+            // If option was already selected, remove it
+            return {
+              ...prev,
+              [questionId]: currentAnswers.filter((item) => item !== answer),
+            };
+          } else {
+            // If selecting a new option, make sure "None" is not selected
+            const filteredAnswers = currentAnswers.filter(
+              (item) => item !== "None"
+            );
+
+            if (maxSelections && filteredAnswers.length >= maxSelections) {
+              return prev;
+            }
+
+            return {
+              ...prev,
+              [questionId]: [...filteredAnswers, answer],
+            };
+          }
         }
       });
     } else {
@@ -92,17 +134,17 @@ export default function QuizLayout({ section }) {
     return true;
   });
 
-  useEffect(() => {
-    if (filteredQuestions.length === 0 && section !== "Contact Information") {
-      setIsAutoSkipping(true);
-      const timer = setTimeout(() => {
-        goToNextSection();
-        setIsAutoSkipping(false);
-      }, 3000);
+  // useEffect(() => {
+  //   if (filteredQuestions.length === 0 && section !== "Contact Information") {
+  //     setIsAutoSkipping(true);
+  //     const timer = setTimeout(() => {
+  //       goToNextSection();
+  //       setIsAutoSkipping(false);
+  //     }, 2000);
 
-      return () => clearTimeout(timer);
-    }
-  }, [filteredQuestions, section, goToNextSection]);
+  //     return () => clearTimeout(timer);
+  //   }
+  // }, [filteredQuestions, section, goToNextSection]);
 
   useEffect(() => {
     const scrollToTop = () => {
@@ -115,6 +157,8 @@ export default function QuizLayout({ section }) {
 
     return () => clearTimeout(timeout);
   }, [section]);
+
+  console.log(answers);
 
   if (section === "Contact Information") {
     return (

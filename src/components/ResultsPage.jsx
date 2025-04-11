@@ -19,7 +19,7 @@ export default function ResultsPage() {
         <div key={field.id} className="question-result">
           <h3>{field.label}</h3>
           <p>
-            <strong>Answer:</strong> {answer || "Not provided"}
+            <strong>Answer:</strong> {answer || "Null"}
           </p>
         </div>
       );
@@ -40,16 +40,13 @@ export default function ResultsPage() {
         <p>
           <strong>Answer:</strong> {formatQuizAnswer(question, answer)}
         </p>
-        {question.description && (
-          <p className="description">{question.description}</p>
-        )}
       </div>
     );
   };
 
   // Format quiz answers (not needed for contact info)
   const formatQuizAnswer = (question, answer) => {
-    if (answer === undefined || answer === null) return "Not answered";
+    if (answer === undefined || answer === null) return "null";
 
     if (Array.isArray(answer)) {
       return answer.join(", ");

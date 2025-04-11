@@ -1,6 +1,6 @@
 import { createContext, useContext, useState } from "react";
 import businessProfile from "../data/business_profile";
-import followupQuestions from "../data/follow_up";
+// import followupQuestions from "../data/follow_up";
 import keyChallenges from "../data/key_challenges";
 import dataMaturity from "../data/data_maturity";
 import contactFormFields from "../data/contactForm";
