@@ -4,7 +4,7 @@ const contactFormFields = [
     label: "First Name",
     type: "text",
     required: true,
-    pattern: "^[A-Za-zÀ-ÖØ-öø-ÿ-' ]+$",
+    pattern: "^[A-Za-zÇçĞğİıÖöŞşÜüÀ-ÖØ-öø-ÿ' -]+$",
     errorMessage: "Please enter a valid first name",
   },
   {
@@ -12,7 +12,7 @@ const contactFormFields = [
     label: "Last Name",
     type: "text",
     required: true,
-    pattern: "^[A-Za-zÀ-ÖØ-öø-ÿ-' ]+$",
+    pattern: "^[A-Za-zÇçĞğİıÖöŞşÜüÀ-ÖØ-öø-ÿ' -]+$",
     errorMessage: "Please enter a valid last name",
   },
   {
